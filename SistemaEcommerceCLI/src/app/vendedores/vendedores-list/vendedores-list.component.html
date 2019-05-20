@@ -1,0 +1,26 @@
+<input type="text" [(ngModel)]="searchText" class="form-control" 
+placeholder="O que voc&ecirc; est&aacute; procurando?" /><br />
+
+<table class="table table-hover">
+  <thead>
+      <tr>
+        <th>C&oacute;digo</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Telefone</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vendedorTabela of vendedores | filter:searchText">
+        <a [routerLink]="[vendedorTabela.codigo]">
+        <td>{{vendedorTabela.codigo}}</td></a>
+        <td>{{vendedorTabela.nome}}</td>	
+        <td>{{vendedorTabela.cpf}}</td>	
+        <td>{{vendedorTabela.telefone}}</td>	
+        <td>{{vendedorTabela.email}}</td>
+      </tr>
+    </tbody>		
+</table> 
+<span [hidden]="(vendedores | filter: searchText).length != 0">Infelizmente 
+  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span>

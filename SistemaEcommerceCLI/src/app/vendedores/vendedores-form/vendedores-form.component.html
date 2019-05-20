@@ -1,0 +1,53 @@
+<form class="was-validated form-row" #cadastro="ngForm" (ngSubmit)="salvar()">  
+  <div class="col-md-2 mb-3">
+    <label for="txtCodigo">C&oacute;digo</label>
+    <input type="text" ng-model="vendedor.codigo" class="form-control" 
+    disabled name="codigo">
+  </div>
+
+  <div class="col-md-4 mb-3">
+      <label for="nome">Nome</label>
+    <input type="text" [(ngModel)]="vendedor.nome" 
+    class="form-control is-valid" #nome="ngModel" name="nome" minlength="5" required>
+    <div [hidden]="nome.valid" class="invalid-feedback">
+        <p>Nome incompleto</p>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <label for="cpf">CPF</label>
+    <input type="text" [(ngModel)]="vendedor.cpf" 
+    class="form-control is-valid" #cpf="ngModel" name="cpf" required>
+    <div [hidden]="cpf.valid" class="invalid-feedback">
+        <p>Descric&atilde;o é obrigatório</p>
+    </div>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <label for="telefone">Telefone</label>
+    <input type="text" [(ngModel)]="vendedor.telefone" 
+    class="form-control is-valid" #telefone="ngModel" name="telefone" required>
+    <div [hidden]="telefone.valid" class="invalid-feedback">
+      <p>Pre&ccedil;o é obrigatório</p>
+    </div>
+  </div>
+
+  <div class="col-md-2 mb-2">
+    <label for="email">Email</label>
+    <input type="text" [(ngModel)]="vendedor.email" 
+    class="form-control is-valid" #email="ngModel" name="email" required>
+    <div class="invalid-feedback">
+        <p>Email é obrigatório</p>
+    </div>
+  </div>
+
+  <div class="container">
+      <button class="btn btn-success" type="submit" 
+      [disabled]="cadastro.form.invalid">Enviar</button>
+      <button class="btn btn-danger" type="button" 
+      [hidden]="isNew" (click)="excluir()">Excluir</button>
+      <button class="btn btn-warning" type="button" 
+      (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
+
