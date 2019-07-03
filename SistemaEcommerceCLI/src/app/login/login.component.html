@@ -1,0 +1,23 @@
+<h5>Login</h5>
+<div class="row">
+  <form [formGroup]="form" (ngSubmit)="onSignin()">
+    <div class="row">
+      <div class="form-group">
+        <input id="cpf" type="cpf" class="validate" formControlName="cpf"
+          [class.invalid]="formLogin.controls['cpf'].touched && !formLogin.controls['cpf'].valid">
+        <label for="cpf" data-error="invalid cpf">
+          CPF
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit" [disabled]="!formLogin.valid">
+          Entrar
+        </button>
+      </div>
+    </div>
+  </form>
+
+</div>

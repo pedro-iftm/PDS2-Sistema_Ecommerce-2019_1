@@ -1,9 +1,11 @@
 import { Routes, RouterModule } from '@angular/router'
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: LoginComponent
     },
     {
         path: 'home',
@@ -20,6 +22,10 @@ const routes: Routes = [
     { 
         path: 'produtos',
         loadChildren: 'app/produtos/produto.module#ProdutosModule'
+    },
+    {
+      path: 'signin',
+      component: LoginComponent
     }
 ];
 export const RoutingModule = RouterModule.forRoot(routes);
